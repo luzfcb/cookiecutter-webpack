@@ -15,4 +15,4 @@ script: make test
 
 install:
     - pip install -r requirements.txt
-    - nvm install
+    - npm install
