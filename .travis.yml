@@ -6,13 +6,13 @@ language: python
 matrix:
     include:
       - python: 2.7
-        node_js: 5
-        env: TOX_ENV=py27
+        env: TRAVIS_NODE_VERSION="4"
       - python: 3.5
-        node_js: 5
-
+        env: TRAVIS_NODE_VERSION="4"
+        
 script: make test
 
 install:
     - pip install -r requirements.txt
+    - rm -rf ~/.nvm && git clone https://github.com/creationix/nvm.git ~/.nvm && (cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`) && source ~/.nvm/nvm.sh && nvm install $TRAVIS_NODE_VERSION
     - npm install
