@@ -1,0 +1,17 @@
+# Config file for automatic testing at travis-ci.org
+
+sudo: false
+language: python
+
+matrix:
+    include:
+      - python: 2.7
+        node_js: 5
+        env: TOX_ENV=py27
+      - python: 3.5
+        node_js: 5
+
+script: make test
+
+install:
+    - pip install -r requirements.txt
